@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterence/utils/utils.dart';
+import 'package:flutterence/utils/extensions/mediaquery_extension.dart';
 
 class SocialLoginButton extends StatelessWidget {
   const SocialLoginButton(
@@ -16,16 +17,15 @@ class SocialLoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        width: assignWidth(context: context, fraction: 0.6),
+        width: assignWidth(
+            context: context,
+            fraction: MediaQuery.of(context).isPhone ? 0.6 : 0.4),
         child: ElevatedButton.icon(
           style: ElevatedButton.styleFrom(
             textStyle: Styles.bodyTextStyle().copyWith(
-                fontSize: MediaQuery.of(context).isSmallPhone ? fontS : fontM),
+                fontSize: MediaQuery.of(context).isSmallPhone ? fontS : fontXL),
             primary: Colors.white,
             onPrimary: Colors.black,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(buttonBorderRadius),
-            ),
           ),
           onPressed: onPressed,
           icon: Padding(

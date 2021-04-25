@@ -96,6 +96,7 @@ class AppColors {
   static const Color redShade5 = Color(0xFFFB4656);
 
   //Blue
+  static const Color flutterblue = Color(0xFF0CDAFF);
   static const Color twitterBlue = Color(0xFF1867C7);
   static const Color facebookBlue = Color(0xFF44619D);
   static const Color linkedInBlue = Color(0xFF0467C2);

@@ -100,7 +100,7 @@ unlinked_spec.ds
 #firebase related
 **/google-services.json
 **/GoogleService-Info.plist
-
+**/firebaseconfig.js
 # Private consts
 lib/utils/constants.dart
 

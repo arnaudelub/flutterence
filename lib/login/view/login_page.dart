@@ -1,14 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_firebase_auth_facade/flutter_firebase_auth_facade.dart';
 import 'package:flutterence/injections.dart';
 import 'package:flutterence/login/bloc/login_bloc.dart';
 import 'package:flutterence/l10n/l10n.dart';
 import 'package:flutterence/login/widgets/social_login_button.dart';
+import 'package:flutterence/utils/failure_mapper.dart';
 import 'package:flutterence/utils/theme/app_color.dart';
 import 'package:flutterence/utils/theme/app_style.dart';
 import 'package:flutterence/routes/router.gr.dart';
+import 'package:flutterence/utils/extensions/mediaquery_extension.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -24,6 +25,7 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+    final isPhone = MediaQuery.of(context).isPhone;
     return BlocConsumer<LoginBloc, LoginState>(builder: (context, state) {
       return Scaffold(
           appBar: AppBar(
@@ -34,32 +36,46 @@ class LoginView extends StatelessWidget {
           body: Stack(
             children: [
               Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SocialLoginButton(
-                      onPressed: () => context
-                          .read<LoginBloc>()
-                          .add(const LoginEvent.loginWithGoogleAsked()),
-                      text: l10n.loginWithGoogle,
-                      iconAsset: Image.asset('assets/icons/google_icon.png',
-                          height: socialIconSize)),
-                  const SizedBox(height: smallSpacer),
-                  SocialLoginButton(
-                      onPressed: () => context
-                          .read<LoginBloc>()
-                          .add(const LoginEvent.loginWithGithubAsked()),
-                      text: l10n.loginWithGithub,
-                      iconAsset: Image.asset('assets/icons/github_icon.png',
-                          height: socialIconSize)),
-                  const SizedBox(height: smallSpacer),
-                  SocialLoginButton(
-                      onPressed: () => context
-                          .read<LoginBloc>()
-                          .add(const LoginEvent.loginWithAppleAsked()),
-                      text: l10n.loginWithApple,
-                      iconAsset: Image.asset('assets/icons/apple_icon.png',
-                          height: socialIconSize)),
+                  Center(
+                    child: Image.asset('assets/images/dashatar.png', scale: 2),
+                  ),
+                  SizedBox(height: isPhone ? mediumSpace : largeSpacer),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SocialLoginButton(
+                          onPressed: () => context
+                              .read<LoginBloc>()
+                              .add(const LoginEvent.loginWithGoogleAsked()),
+                          text: l10n.loginWithGoogle,
+                          iconAsset: Image.asset('assets/icons/google_icon.png',
+                              height: isPhone
+                                  ? socialIconSize
+                                  : webSocialIconSize)),
+                      SizedBox(height: isPhone ? smallSpacer : mediumSpace),
+                      SocialLoginButton(
+                          onPressed: () => context
+                              .read<LoginBloc>()
+                              .add(const LoginEvent.loginWithGithubAsked()),
+                          text: l10n.loginWithGithub,
+                          iconAsset: Image.asset('assets/icons/github_icon.png',
+                              height: isPhone
+                                  ? socialIconSize
+                                  : webSocialIconSize)),
+                      SizedBox(height: isPhone ? smallSpacer : mediumSpace),
+                      SocialLoginButton(
+                          onPressed: () => context
+                              .read<LoginBloc>()
+                              .add(const LoginEvent.loginWithAppleAsked()),
+                          text: l10n.loginWithApple,
+                          iconAsset: Image.asset('assets/icons/apple_icon.png',
+                              height: isPhone
+                                  ? socialIconSize
+                                  : webSocialIconSize)),
+                    ],
+                  ),
                 ],
               ),
               if (state.isLoading) ...[
@@ -73,20 +89,13 @@ class LoginView extends StatelessWidget {
       state.authFailureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
-              (failure) => ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text(failure.maybeMap(
-                      invalidCredentials: (InvalidCredentials value) =>
-                          'Invalid',
-                      weakPassword: (WeakPassword value) => 'Weak password',
-                      invalidEmail: (InvalidEmail value) => 'Invalid email',
-                      serverError: (ServerError value) => 'Server error',
-                      operationNotAllowed: (OperationNotAllowed value) =>
-                          'Not allowed',
-                      wrongIosVersion: (WrongIosVersion value) =>
-                          'iOs > 13 required',
-                      cancelledByUser: (CancelledByUser value) =>
-                          'CancelledByUser',
-                      orElse: () => 'Unexpected error')))),
+              (failure) => ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        FailureMapper.authFailureMapper(failure, l10n),
+                      ),
+                    ),
+                  ),
               (success) => context.router.replace(const SplashPageRoute())));
     });
   }

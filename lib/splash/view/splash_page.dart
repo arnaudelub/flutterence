@@ -22,13 +22,11 @@ class SplashPage extends StatelessWidget {
                     listener: (context, state) {
                   if (state is Unauthenticated) {
                     context.router.replace(const LoginPageRoute());
+                  } else if (state is Authenticated) {
+                    context.router.replace(const HomePageRoute());
                   }
                 }, builder: (context, state) {
-                  if (state is Authenticated) {
-                    return const SplashView(text: 'authenticated');
-                  } else {
-                    return const SplashView();
-                  }
+                  return const SplashView();
                 }));
           } else if (snapshot.hasError) {
             return const SplashView(text: 'Error With Firebase');

@@ -46,6 +46,9 @@ const double largeSpacer = 16.0;
 /// Value: 25.0
 const double socialIconSize = 25.0;
 
+/// Value: 25.0
+const double webSocialIconSize = 35.0;
+
 /// Styling the app
 class Styles {
   static const Color blackColor = Color(0xFF333333);

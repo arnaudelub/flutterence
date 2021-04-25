@@ -1,54 +1,55 @@
+
 {
-    "@@locale": "en",
-    "invalidEmailAndPasswordCombination": "Invalid email or password error",
+    "@@locale": "fr",
+    "invalidEmailAndPasswordCombination": "Email et/ou password invalide",
     "@invalidEmailAndPasswordCombination": {
         "description": "Text shown in the snackBar when email and password don't match"
     },
-    "emailAlreadyInUse": "This email is already in use",
+    "emailAlreadyInUse": "Email deja en utilisation",
     "@emailAlreadyInUse": {
         "description": "Text shown in the snackBar when the email is already in use"
     },
-    "serverError": "Server error",
+    "serverError": "Erreur de server",
     "@serverError": {
         "description": "Text shown in the snackBar when server error"
     },
-    "invalidCredentials": "Invalid credentials",
+    "invalidCredentials": "Credentiales invalides",
     "@invalidCredentials": {
         "description": "Text shown in the snackBar when credentials are invalid"
     },
-    "weakPassword": "Password too weak",
+    "weakPassword": "Mot de passe pas assez fort",
     "@weakPassword": {
         "description": "Text shown in the snackBar when password is too weak"
     },
-    "invalidEmail": "Email is invalid",
+    "invalidEmail": "Email invalide",
     "@invalidEmail": {
         "description": "Text shown in the snackBar when email is invalid"
     },
-    "operationNotAllowed": "Operation not allowed",
+    "operationNotAllowed": "Operation non authorisée",
     "@operationNotAllowed": {
         "description": "Text shown in the snackBar when login is not allowed"
     },
-    "wrongIosVersion": "You need iOS version >= 13.0",
+    "wrongIosVersion": "Version iOS >= 13.0 necessaire",
     "@wrongIosVersion": {
         "description": "Text shown in the snackBar when login Apple iOS is < 13"
     },
-    "cancelledByUser": "Login canceled by user",
+    "cancelledByUser": "Login annulé par l'utilisateur",
     "@cancelledByUser": {
         "description": "Text shown in the snackBar when login is canceled by the user"
     },
-    "unexpectedError": "Unexpected error",
+    "unexpectedError": "Erreur inesperée",
     "@unexpectedError": {
         "description": "Text shown in the snackBar when login gives an unexpected error"
     },
-    "loginWithGoogle": "Login with Google",
+    "loginWithGoogle": "Login avec Google",
     "@loginWithGoogle": {
         "description": "Text used for login with google button"
     },
-    "loginWithApple": "Login with Apple",
+    "loginWithApple": "Login avec Apple",
       "@loginWithApple": {
         "description": "Text used for login with apple button"
     },
-    "loginWithGithub": "Login with GitHub",
+    "loginWithGithub": "Login avec GitHub",
       "@loginWithGithub": {
         "description": "Text used for login with GitHub button"
     }

@@ -1,8 +1,43 @@
 {
     "@@locale": "es",
-    "counterAppBarTitle": "Contador",
-    "@counterAppBarTitle": {
-        "description": "Texto mostrado en la AppBar de la página del contador"
+    "invalidEmailAndPasswordCombination": "Invalid email or password error",
+    "@invalidEmailAndPasswordCombination": {
+        "description": "Text shown in the snackBar when email and password don't match"
+    },
+    "emailAlreadyInUse": "This email is already in use",
+    "@emailAlreadyInUse": {
+        "description": "Text shown in the snackBar when the email is already in use"
+    },"serverError": "Server error",
+    "@serverError": {
+        "description": "Text shown in the snackBar when server error"
+    },
+    "invalidCredentials": "Invalid credentials",
+    "@invalidCredentials": {
+        "description": "Text shown in the snackBar when credentials are invalid"
+    },
+    "weakPassword": "Password too weak",
+    "@weakPassword": {
+        "description": "Text shown in the snackBar when password is too weak"
+    },
+    "invalidEmail": "Email is invalid",
+    "@invalidEmail": {
+        "description": "Text shown in the snackBar when email is invalid"
+    },
+    "operationNotAllowed": "Operation not allowed",
+    "@operationNotAllowed": {
+        "description": "Text shown in the snackBar when login is not allowed"
+    },
+    "wrongIosVersion": "You need iOS version >= 13.0",
+    "@wrongIosVersion": {
+        "description": "Text shown in the snackBar when login Apple iOS is < 13"
+    },
+    "cancelledByUser": "Login canceled by user",
+    "@cancelledByUser": {
+        "description": "Text shown in the snackBar when login is canceled by the user"
+    },
+    "unexpectedError": "Unexpected error",
+    "@unexpectedError": {
+        "description": "Text shown in the snackBar when login gives an unexpected error"
     },
     "loginWithGoogle": "Login con Google",
     "@loginWithGoogle": {
