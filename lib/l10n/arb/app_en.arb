@@ -1,0 +1,19 @@
+{
+    "@@locale": "en",
+    "counterAppBarTitle": "Counter",
+    "@counterAppBarTitle": {
+        "description": "Text shown in the AppBar of the Counter Page"
+    },
+    "loginWithGoogle": "Login with Google",
+    "@loginWithGoogle": {
+        "description": "Text used for login with google button"
+    },
+    "loginWithApple": "Login with Apple",
+      "@loginWithApple": {
+        "description": "Text used for login with apple button"
+    },
+    "loginWithGithub": "Login with GitHub",
+      "@loginWithGithub": {
+        "description": "Text used for login with GitHub button"
+    }
+}

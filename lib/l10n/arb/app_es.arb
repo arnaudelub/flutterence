@@ -1,0 +1,20 @@
+{
+    "@@locale": "es",
+    "counterAppBarTitle": "Contador",
+    "@counterAppBarTitle": {
+        "description": "Texto mostrado en la AppBar de la página del contador"
+    },
+    "loginWithGoogle": "Login con Google",
+    "@loginWithGoogle": {
+        "description": "Text used for login with google button"
+    },
+    "loginWithApple": "Login con Apple",
+      "@loginWithApple": {
+        "description": "Text used for login with apple button"
+    },
+    "loginWithGithub": "Login con GitHub",
+      "@loginWithGithub": {
+        "description": "Text used for login with GitHub button"
+    }
+
+}
