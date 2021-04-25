@@ -1,4 +1,24 @@
-# Flutterence
+# Flutterence Project
+
+## What is it?
+
+When you are in the flutter community, you may ending having multiple meetup groups, slack, discord,
+so it can be easy to loose some Flutter conference that may interest you.
+So the idea is to centralize all the Flutter conferences, meetings into one spot so you won't miss any
+event
+
+- The project is Open source, so it can evolve thanks to the community and for the community.
+
+- If you want to be a contributor and test the app, feel free to contact me so i can give you the missing files needed to develop the project
+
+- The app will be using Firebase (Firestore Cloud, Cloud messaging, Storage, analytics)
+
+## The starter project
+
+I am leaving here the README from *very_good create* cli, so you know how to use it.
+More info can be found here: [very good CLI](https://github.com/VeryGoodOpenSource/very_good_cli)
+
+
 
 [![Very Good Ventures][logo]][very_good_ventures_link]
 
