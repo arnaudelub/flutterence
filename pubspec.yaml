@@ -30,6 +30,12 @@ dependencies:
 
   #packages
   flutter_firebase_auth_facade: ^0.0.10-nullsafety.1
+  user_repository:
+      path: ./packages/user_repository
+  firestore_helper:
+      path: ./packages/firestore_helper
+  push_notification:
+      path: ./packages/push_notification
 
 dev_dependencies:
   flutter_test:

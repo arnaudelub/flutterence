@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterence/injections.dart';
 import 'package:flutterence/routes/router.gr.dart';
 import 'package:flutterence/splash/bloc/auth_bloc.dart';
+import 'package:flutterence/user/bloc/user_bloc.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -15,19 +16,16 @@ class SplashPage extends StatelessWidget {
         future: Firebase.initializeApp(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            return BlocProvider(
-                create: (_) => getIt<AuthBloc>()
-                  ..add(const AuthEvent.authCheckRequested()),
-                child: BlocConsumer<AuthBloc, AuthState>(
-                    listener: (context, state) {
-                  if (state is Unauthenticated) {
-                    context.router.replace(const LoginPageRoute());
-                  } else if (state is Authenticated) {
-                    context.router.replace(const HomePageRoute());
-                  }
-                }, builder: (context, state) {
-                  return const SplashView();
-                }));
+            return BlocConsumer<AuthBloc, AuthState>(
+                listener: (context, state) {
+              if (state is Unauthenticated) {
+                context.router.replace(const LoginPageRoute());
+              } else if (state is Authenticated) {
+                context.router.replace(const HomePageRoute());
+              }
+            }, builder: (context, state) {
+              return const SplashView();
+            });
           } else if (snapshot.hasError) {
             return const SplashView(text: 'Error With Firebase');
           } else {

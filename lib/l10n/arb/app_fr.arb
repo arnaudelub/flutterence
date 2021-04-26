@@ -41,6 +41,13 @@
     "@unexpectedError": {
         "description": "Text shown in the snackBar when login gives an unexpected error"
     },
+    "insufficientPermission": "This action is not allowed",
+    "@insufficientPermission": {
+        "description": "Text shown in the snackBar when the query is not allowed"
+    },"emptyDocs": "This document does not exist",
+    "@emptyDocs": {
+        "description": "Text shown in the snackBar when the query response is empty"
+    },
     "loginWithGoogle": "Login avec Google",
     "@loginWithGoogle": {
         "description": "Text used for login with google button"

@@ -1,3 +1,4 @@
+import 'package:firestore_helper/firestore_helper.dart' as firestore;
 import 'package:flutter_firebase_auth_facade/flutter_firebase_auth_facade.dart';
 import 'package:flutterence/l10n/l10n.dart';
 
@@ -18,4 +19,13 @@ class FailureMapper {
                   l10n.invalidEmailAndPasswordCombination,
           emailAlreadyInUse: (EmailAlreadyInUse value) =>
               l10n.emailAlreadyInUse);
+
+  static String firestoreFailureMapper(
+          firestore.FirestoreFailure failure, AppLocalizations l10n) =>
+      failure.map(
+          serverError: (firestore.ServerError _) => l10n.serverError,
+          unexpected: (firestore.Unexpected _) => l10n.unexpectedError,
+          insufficientPermission: (firestore.InsufficientPermission _) =>
+              l10n.insufficientPermission,
+          emptyDocs: (firestore.EmptyDocs _) => l10n.emptyDocs);
 }
