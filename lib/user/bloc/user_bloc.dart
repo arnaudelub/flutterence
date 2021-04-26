@@ -32,7 +32,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       _userStreamSubscription = _userRepository.setUser().listen((data) async {
         print(data);
         if (data == left(const FirestoreFailure.emptyDocs())) {
-          print("Reciveding empty doc");
           add(const UserEvent.addUserasked());
         } else {
           add(UserEvent.userReceived(data!));
@@ -50,6 +49,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         id: user!.uid,
         email: user.email!,
         displayName: user.displayName!,
+        avatar: user.photoURL,
       );
       final failureOrSuccess = await _userRepository.addUser(user: userToAdd);
       if (failureOrSuccess.isLeft()) {
