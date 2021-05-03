@@ -2,10 +2,10 @@
 
 ## What is it?
 
-When you are in the flutter community, you may ending having multiple meetup groups, slack, discord,
-so it can be easy to loose some Flutter conference that may interest you.
+When you are in the flutter community, you may end having multiple meetup groups, slack, discord,
+so it can be easy to loose some Flutter conferences that may interest you.
 So the idea is to centralize all the Flutter conferences, meetings into one spot so you won't miss any
-event
+events.
 
 - The project is Open source, so it can evolve thanks to the community and for the community.
 
