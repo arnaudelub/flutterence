@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -83,16 +85,18 @@ class LoginView extends StatelessWidget {
                                     ? socialIconSize
                                     : webSocialIconSize)),
                         SizedBox(height: isPhone ? smallSpacer : mediumSpace),
-                        SocialLoginButton(
-                            onPressed: () => context
-                                .read<LoginBloc>()
-                                .add(const LoginEvent.loginWithAppleAsked()),
-                            text: l10n.loginWithApple,
-                            iconAsset: Image.asset(
-                                'assets/icons/apple_icon.png',
-                                height: isPhone
-                                    ? socialIconSize
-                                    : webSocialIconSize)),
+                        if (Platform.isIOS) ...[
+                          SocialLoginButton(
+                              onPressed: () => context
+                                  .read<LoginBloc>()
+                                  .add(const LoginEvent.loginWithAppleAsked()),
+                              text: l10n.loginWithApple,
+                              iconAsset: Image.asset(
+                                  'assets/icons/apple_icon.png',
+                                  height: isPhone
+                                      ? socialIconSize
+                                      : webSocialIconSize)),
+                        ],
                       ],
                     ),
                   ],

@@ -104,6 +104,7 @@ class _$SetUserAskedCopyWithImpl<$Res> extends _$UserEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$SetUserAsked implements SetUserAsked {
   const _$SetUserAsked();
 
@@ -207,6 +208,7 @@ class _$UserReceivedCopyWithImpl<$Res> extends _$UserEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UserReceived implements UserReceived {
   const _$UserReceived(this.userOrFailure);
 
@@ -317,6 +319,7 @@ class _$AddUserAskedCopyWithImpl<$Res> extends _$UserEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$AddUserAsked implements AddUserAsked {
   const _$AddUserAsked();
 
@@ -484,6 +487,7 @@ class _$InitialCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initial implements Initial {
   const _$Initial();
 
@@ -576,6 +580,7 @@ class _$UserIsLoadingCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UserIsLoading implements UserIsLoading {
   const _$UserIsLoading();
 
@@ -690,6 +695,7 @@ class _$UserFailureCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UserFailure implements UserFailure {
   const _$UserFailure(this.failure);
 
@@ -799,6 +805,7 @@ class _$UserSuccessCopyWithImpl<$Res> extends _$UserStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$UserSuccess implements UserSuccess {
   const _$UserSuccess();
 

@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
@@ -68,7 +67,7 @@ class UserRepository implements IUserRepository {
         return left(const FirestoreFailure.insufficientPermission());
       }
       return left(const FirestoreFailure.unexpected());
-    } on PlatformException catch (e) {
+    } on PlatformException catch (_) {
       return left(const FirestoreFailure.unexpected());
     }
   }
@@ -172,7 +171,7 @@ class UserRepository implements IUserRepository {
       }
 
       return left(const FirestoreFailure.serverError());
-    } on PlatformException catch (e) {
+    } on PlatformException catch (_) {
       return left(const FirestoreFailure.unexpected());
     }
   }

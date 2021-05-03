@@ -5,15 +5,16 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutterence/app/app.dart';
-import 'package:flutterence/splash/splash.dart';
 
 void main() {
   group('App', () {
-    testWidgets('renders SplashPage', (tester) async {
+    testWidgets('get the MaterialApp widget', (tester) async {
       await tester.pumpWidget(App());
-      expect(find.byType(SplashPage), findsOneWidget);
+      // Verify that a push event happened
+      expect(find.byType(MaterialApp), findsOneWidget);
     });
   });
 }

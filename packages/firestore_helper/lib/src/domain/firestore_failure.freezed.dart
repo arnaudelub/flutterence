@@ -112,6 +112,7 @@ class _$ServerErrorCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$ServerError implements ServerError {
   const _$ServerError();
 
@@ -205,6 +206,7 @@ class _$UnexpectedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Unexpected implements Unexpected {
   const _$Unexpected();
 
@@ -299,6 +301,7 @@ class _$InsufficientPermissionCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$InsufficientPermission implements InsufficientPermission {
   const _$InsufficientPermission();
 
@@ -390,6 +393,7 @@ class _$EmptyDocsCopyWithImpl<$Res> extends _$FirestoreFailureCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$EmptyDocs implements EmptyDocs {
   const _$EmptyDocs();
 

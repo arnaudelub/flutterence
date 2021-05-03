@@ -85,7 +85,7 @@ class AppTheme {
     primaryVariant: AppColors.violet,
     secondary: AppColors.indigo200,
     secondaryVariant: Colors.red,
-    background: AppColors.deepBlue200,
+    background: AppColors.black,
     surface: AppColors.violet,
     onBackground: Colors.white,
     error: _darkFillColor,
@@ -96,15 +96,13 @@ class AppTheme {
     brightness: Brightness.light,
   );
 
-  static const _superBold = FontWeight.w900;
   static const _bold = FontWeight.w700;
   static const _semiBold = FontWeight.w600;
   static const _medium = FontWeight.w500;
   static const _regular = FontWeight.w400;
-  static const _light = FontWeight.w300;
 
   static final AppBarTheme _darkAppBarTheme = AppBarTheme(
-    color: AppColors.purple,
+    color: AppColors.black,
     elevation: 0,
     textTheme: _textTheme,
     centerTitle: true,
@@ -166,9 +164,10 @@ class AppTheme {
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
+    // AppBar title
     headline6: GoogleFonts.ubuntu(
       fontSize: 18,
-      color: AppColors.primaryText,
+      color: AppColors.white,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),

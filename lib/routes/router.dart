@@ -4,15 +4,14 @@ import 'package:flutterence/login/view/login_page.dart';
 import 'package:flutterence/splash/splash.dart';
 
 @MaterialAutoRouter(
-  generateNavigationHelperExtension: true,
   routes: <AutoRoute>[
-    AdaptiveRoute(
+    AutoRoute(
       path: '/',
       page: SplashPage,
       initial: true,
     ),
-    AdaptiveRoute(page: LoginPage, path: '/login'),
-    AdaptiveRoute(page: HomePage, path: '/home')
+    AutoRoute(page: LoginPage, path: '/login'),
+    AutoRoute(page: HomePage, path: '/home')
   ],
 )
 class $AppRouter {}

@@ -15,6 +15,7 @@ dependencies:
   freezed_annotation: ^0.14.1
   json_annotation: ^4.0.1
   cloud_firestore: ^1.0.6
+  dartz: ^0.10.0-nullsafety.1
 
 dev_dependencies:
   flutter_test:

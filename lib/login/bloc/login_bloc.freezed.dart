@@ -107,6 +107,7 @@ class _$InitialCopyWithImpl<$Res> extends _$LoginEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$Initial implements Initial {
   const _$Initial();
 
@@ -200,6 +201,7 @@ class _$LoginWithGoogleAskedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$LoginWithGoogleAsked implements LoginWithGoogleAsked {
   const _$LoginWithGoogleAsked();
 
@@ -293,6 +295,7 @@ class _$LoginWithGithubAskedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$LoginWithGithubAsked implements LoginWithGithubAsked {
   const _$LoginWithGithubAsked();
 
@@ -386,6 +389,7 @@ class _$LoginWithAppleAskedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$LoginWithAppleAsked implements LoginWithAppleAsked {
   const _$LoginWithAppleAsked();
 
@@ -563,6 +567,7 @@ class __$LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_LoginState implements _LoginState {
   _$_LoginState(
       {required this.isLoading, required this.authFailureOrSuccessOption});

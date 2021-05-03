@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_firebase_auth_facade/flutter_firebase_auth_facade.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:bloc_test/bloc_test.dart';
-import 'package:flutterence/counter/counter.dart';
 import 'package:flutterence/splash/bloc/auth_bloc.dart';
 import 'package:mocktail/mocktail.dart';
 

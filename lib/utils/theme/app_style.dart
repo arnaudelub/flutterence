@@ -33,6 +33,8 @@ const double fontXXXL = 22;
 /// value = 8
 const double buttonBorderRadius = 8;
 
+/// value = 12
+const double containerBorderRadius = 12.0;
 // Spacer
 /// Value: 8.0
 const double smallSpacer = 8.0;

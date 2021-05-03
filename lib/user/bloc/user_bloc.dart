@@ -1,18 +1,17 @@
 import 'dart:async';
 
+import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firestore_helper/firestore_helper.dart';
 import 'package:flutter_firebase_auth_facade/flutter_firebase_auth_facade.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:injectable/injectable.dart';
+import 'package:meta/meta.dart';
 import 'package:user_repository/user_repository.dart';
 
+part 'user_bloc.freezed.dart';
 part 'user_event.dart';
 part 'user_state.dart';
-
-part 'user_bloc.freezed.dart';
 
 @injectable
 class UserBloc extends Bloc<UserEvent, UserState> {
@@ -32,7 +31,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       _userStreamSubscription = _userRepository.setUser().listen((data) async {
         print(data);
         if (data == left(const FirestoreFailure.emptyDocs())) {
-          print("Reciveding empty doc");
           add(const UserEvent.addUserasked());
         } else {
           add(UserEvent.userReceived(data!));
@@ -50,6 +48,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         id: user!.uid,
         email: user.email!,
         displayName: user.displayName!,
+        avatar: user.photoURL,
       );
       final failureOrSuccess = await _userRepository.addUser(user: userToAdd);
       if (failureOrSuccess.isLeft()) {
