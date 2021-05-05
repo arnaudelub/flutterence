@@ -20,7 +20,7 @@ jobs:
         shell: bash
         env:
             SECRET_FILE: ${{secrets.ENVS}}
-        run: echo "$SECRET_FILE" | base64 --decode > .env
+        run: echo "$SECRET_FILE" | base64 --decode > .env && cat .env
 
       - name: Run build_runner
         run: flutter pub run build_runner build --delete-conflicting-outputs
