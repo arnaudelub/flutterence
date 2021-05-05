@@ -19,7 +19,7 @@ jobs:
       - name: Create env file
         shell: bash
         env:
-            SECRET_FILE: ${{secrets.envs}}
+            SECRET_FILE: ${{secrets.ENVS}}
         run: echo "$env:SECRET_FILE" | base64 --decode > .env
 
       - name: Run build_runner
