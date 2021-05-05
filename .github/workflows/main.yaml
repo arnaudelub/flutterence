@@ -30,9 +30,9 @@ jobs:
             SECRET_FILE: ${{secrets.ENVS}}
         run: echo "$SECRET_FILE" | base64 --decode > .env
 
-      - name: Print ls -la
+      - name: Print env file
         shell: bash
-        run: ls -la
+        run: cat .env
 
       - name: Run build_runner
         run: flutter pub run build_runner build --delete-conflicting-outputs
