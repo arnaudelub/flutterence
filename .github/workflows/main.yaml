@@ -28,7 +28,7 @@ jobs:
         shell: bash
         env:
             SECRET_FILE: ${{secrets.ENVS}}
-        run: echo "$SECRET_FILE" | base64 --decode > .env
+        run: echo "$SECRET_FILE" | base64 --decode > lib/core/env/.env
 
       - name: Print env file
         shell: bash

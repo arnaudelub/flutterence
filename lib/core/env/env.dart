@@ -2,7 +2,7 @@ import 'package:envify/envify.dart';
 
 part 'env.g.dart';
 
-@Envify(path: '.env')
+@Envify(path: 'lib/core/env/.env')
 abstract class Env {
   static const String callbackurl = _Env.callbackurl;
   static const String callbackurldev = _Env.callbackurldev;
