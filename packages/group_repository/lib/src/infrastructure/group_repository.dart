@@ -21,10 +21,11 @@ Future<Either<FirestoreFailure, List<Group>>> fetchGroupsAndParseFromIsolate(
   }
 }
 
-List<Group> parseGroups(List<QueryDocumentSnapshot> docs) {
+List<Group> parseGroups(
+    List<QueryDocumentSnapshot<Map<String, dynamic>>> docs) {
   print(docs.length);
   return docs
-      .map<Group>((QueryDocumentSnapshot groupSnap) =>
+      .map<Group>((QueryDocumentSnapshot<Map<String, dynamic>> groupSnap) =>
           GroupDto.fromFirestore(groupSnap).toDomain())
       .toList();
 }

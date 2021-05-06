@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firestore_helper/firestore_helper.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';

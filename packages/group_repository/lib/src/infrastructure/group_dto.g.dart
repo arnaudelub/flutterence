@@ -12,7 +12,7 @@ _$_GroupDto _$_$_GroupDtoFromJson(Map<String, dynamic> json) {
     countryId: json['country_id'] as String,
     subGroups:
         (json['sub_groups'] as List<dynamic>).map((e) => e as String?).toList(),
-    members: GroupDto._memberFromJson(json['members'] as List<dynamic>),
+    members: GroupDto._memberFromJson(json['members'] as List),
     events: (json['events'] as List<dynamic>).map((e) => e as String?).toList(),
     topics: (json['topics'] as List<dynamic>).map((e) => e as String?).toList(),
     isMainGroup: json['is_main_group'] as bool,

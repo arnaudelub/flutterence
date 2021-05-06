@@ -103,7 +103,7 @@ unlinked_spec.ds
 **/firebaseconfig.js
 # Private consts
 lib/core/env/env.g.dart
-lib/core/env/.env
+.env
 
 # Coverage
 coverage/

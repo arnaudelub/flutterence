@@ -16,14 +16,14 @@ jobs:
       - name: Format
         run: flutter format --set-exit-if-changed lib test
 
-     
+
       - name: Create env file
         shell: bash
         env:
-            SECRET_FILE: ${{secrets.ENVS}}
-        run: echo "$SECRET_FILE" | base64 --decode > lib/core/env/.env
+            SECRET_FILE: ${{ secrets.ENVS }}
+        run: echo "$SECRET_FILE" | base64 --decode > .env
 
-      
+
       - name: Run build_runner
         run: flutter pub run build_runner build --delete-conflicting-outputs
 

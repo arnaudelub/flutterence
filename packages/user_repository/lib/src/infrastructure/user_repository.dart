@@ -130,7 +130,7 @@ class UserRepository implements IUserRepository {
     final user = _auth.getSignedInUser();
     final snap =
         _firestore.collection(userCollectionName).doc(user!.uid).snapshots();
-    yield* snap.map((DocumentSnapshot snapshot) {
+    yield* snap.map((DocumentSnapshot<Map<String, dynamic>> snapshot) {
       if (snapshot.exists) {
         final connectedUser = UserDto.fromFirestore(snapshot).toDomain();
         _setUserStream(connectedUser);

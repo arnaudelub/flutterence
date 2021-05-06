@@ -49,7 +49,7 @@ class GroupDto with _$GroupDto {
   factory GroupDto.fromJson(Map<String, dynamic> json) =>
       _$GroupDtoFromJson(json);
 
-  factory GroupDto.fromFirestore(DocumentSnapshot doc) =>
+  factory GroupDto.fromFirestore(DocumentSnapshot<Map<String, dynamic>> doc) =>
       GroupDto.fromJson(doc.data()!).copyWith(id: doc.id);
 
   Group toDomain() => Group(

@@ -263,9 +263,9 @@ class _$GroupStateTearOff {
     );
   }
 
-  GroupsFailure groupsFailure(FirestoreFailure faiure) {
+  GroupsFailure groupsFailure(FirestoreFailure failure) {
     return GroupsFailure(
-      faiure,
+      failure,
     );
   }
 }
@@ -280,7 +280,7 @@ mixin _$GroupState {
     required TResult Function() initial,
     required TResult Function() groupsAreLoading,
     required TResult Function(List<Group> groups) groupsReceived,
-    required TResult Function(FirestoreFailure faiure) groupsFailure,
+    required TResult Function(FirestoreFailure failure) groupsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -288,7 +288,7 @@ mixin _$GroupState {
     TResult Function()? initial,
     TResult Function()? groupsAreLoading,
     TResult Function(List<Group> groups)? groupsReceived,
-    TResult Function(FirestoreFailure faiure)? groupsFailure,
+    TResult Function(FirestoreFailure failure)? groupsFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -367,7 +367,7 @@ class _$Initial implements Initial {
     required TResult Function() initial,
     required TResult Function() groupsAreLoading,
     required TResult Function(List<Group> groups) groupsReceived,
-    required TResult Function(FirestoreFailure faiure) groupsFailure,
+    required TResult Function(FirestoreFailure failure) groupsFailure,
   }) {
     return initial();
   }
@@ -378,7 +378,7 @@ class _$Initial implements Initial {
     TResult Function()? initial,
     TResult Function()? groupsAreLoading,
     TResult Function(List<Group> groups)? groupsReceived,
-    TResult Function(FirestoreFailure faiure)? groupsFailure,
+    TResult Function(FirestoreFailure failure)? groupsFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -461,7 +461,7 @@ class _$GroupsAreLoading implements GroupsAreLoading {
     required TResult Function() initial,
     required TResult Function() groupsAreLoading,
     required TResult Function(List<Group> groups) groupsReceived,
-    required TResult Function(FirestoreFailure faiure) groupsFailure,
+    required TResult Function(FirestoreFailure failure) groupsFailure,
   }) {
     return groupsAreLoading();
   }
@@ -472,7 +472,7 @@ class _$GroupsAreLoading implements GroupsAreLoading {
     TResult Function()? initial,
     TResult Function()? groupsAreLoading,
     TResult Function(List<Group> groups)? groupsReceived,
-    TResult Function(FirestoreFailure faiure)? groupsFailure,
+    TResult Function(FirestoreFailure failure)? groupsFailure,
     required TResult orElse(),
   }) {
     if (groupsAreLoading != null) {
@@ -579,7 +579,7 @@ class _$GroupsReceived implements GroupsReceived {
     required TResult Function() initial,
     required TResult Function() groupsAreLoading,
     required TResult Function(List<Group> groups) groupsReceived,
-    required TResult Function(FirestoreFailure faiure) groupsFailure,
+    required TResult Function(FirestoreFailure failure) groupsFailure,
   }) {
     return groupsReceived(groups);
   }
@@ -590,7 +590,7 @@ class _$GroupsReceived implements GroupsReceived {
     TResult Function()? initial,
     TResult Function()? groupsAreLoading,
     TResult Function(List<Group> groups)? groupsReceived,
-    TResult Function(FirestoreFailure faiure)? groupsFailure,
+    TResult Function(FirestoreFailure failure)? groupsFailure,
     required TResult orElse(),
   }) {
     if (groupsReceived != null) {
@@ -640,7 +640,9 @@ abstract class $GroupsFailureCopyWith<$Res> {
   factory $GroupsFailureCopyWith(
           GroupsFailure value, $Res Function(GroupsFailure) then) =
       _$GroupsFailureCopyWithImpl<$Res>;
-  $Res call({FirestoreFailure faiure});
+  $Res call({FirestoreFailure failure});
+
+  $FirestoreFailureCopyWith<$Res> get failure;
 }
 
 /// @nodoc
@@ -655,41 +657,48 @@ class _$GroupsFailureCopyWithImpl<$Res> extends _$GroupStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? faiure = freezed,
+    Object? failure = freezed,
   }) {
     return _then(GroupsFailure(
-      faiure == freezed
-          ? _value.faiure
-          : faiure // ignore: cast_nullable_to_non_nullable
+      failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
               as FirestoreFailure,
     ));
+  }
+
+  @override
+  $FirestoreFailureCopyWith<$Res> get failure {
+    return $FirestoreFailureCopyWith<$Res>(_value.failure, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$GroupsFailure implements GroupsFailure {
-  const _$GroupsFailure(this.faiure);
+  const _$GroupsFailure(this.failure);
 
   @override
-  final FirestoreFailure faiure;
+  final FirestoreFailure failure;
 
   @override
   String toString() {
-    return 'GroupState.groupsFailure(faiure: $faiure)';
+    return 'GroupState.groupsFailure(failure: $failure)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is GroupsFailure &&
-            (identical(other.faiure, faiure) ||
-                const DeepCollectionEquality().equals(other.faiure, faiure)));
+            (identical(other.failure, failure) ||
+                const DeepCollectionEquality().equals(other.failure, failure)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(faiure);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failure);
 
   @JsonKey(ignore: true)
   @override
@@ -702,9 +711,9 @@ class _$GroupsFailure implements GroupsFailure {
     required TResult Function() initial,
     required TResult Function() groupsAreLoading,
     required TResult Function(List<Group> groups) groupsReceived,
-    required TResult Function(FirestoreFailure faiure) groupsFailure,
+    required TResult Function(FirestoreFailure failure) groupsFailure,
   }) {
-    return groupsFailure(faiure);
+    return groupsFailure(failure);
   }
 
   @override
@@ -713,11 +722,11 @@ class _$GroupsFailure implements GroupsFailure {
     TResult Function()? initial,
     TResult Function()? groupsAreLoading,
     TResult Function(List<Group> groups)? groupsReceived,
-    TResult Function(FirestoreFailure faiure)? groupsFailure,
+    TResult Function(FirestoreFailure failure)? groupsFailure,
     required TResult orElse(),
   }) {
     if (groupsFailure != null) {
-      return groupsFailure(faiure);
+      return groupsFailure(failure);
     }
     return orElse();
   }
@@ -750,9 +759,9 @@ class _$GroupsFailure implements GroupsFailure {
 }
 
 abstract class GroupsFailure implements GroupState {
-  const factory GroupsFailure(FirestoreFailure faiure) = _$GroupsFailure;
+  const factory GroupsFailure(FirestoreFailure failure) = _$GroupsFailure;
 
-  FirestoreFailure get faiure => throw _privateConstructorUsedError;
+  FirestoreFailure get failure => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GroupsFailureCopyWith<GroupsFailure> get copyWith =>
       throw _privateConstructorUsedError;

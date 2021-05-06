@@ -17,7 +17,8 @@ class LanguageDto with _$LanguageDto {
   factory LanguageDto.fromJson(Map<String, dynamic> json) =>
       _$LanguageDtoFromJson(json);
 
-  factory LanguageDto.fromFirestore(DocumentSnapshot doc) =>
+  factory LanguageDto.fromFirestore(
+          DocumentSnapshot<Map<String, dynamic>> doc) =>
       LanguageDto.fromJson(doc.data()!).copyWith(id: doc.id);
 
   Language toDomain() => Language(id: id, translations: translations);
