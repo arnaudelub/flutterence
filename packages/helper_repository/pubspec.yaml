@@ -1,8 +1,8 @@
-name: event_repository
+name: helper_repository
 description: A new Flutter package project.
 version: 0.0.1
-homepage: https://github.com/arnaudelub/flutterence
 publish_to: none
+homepage: https://github.com/arnaudelub/flutterence
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

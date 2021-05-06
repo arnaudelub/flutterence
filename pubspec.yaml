@@ -39,6 +39,8 @@ dependencies:
       path: ./packages/push_notification
   group_repository:
       path: ./packages/group_repository
+  helper_repository:
+      path: ./packages/helper_repository
 
 dev_dependencies:
   flutter_test:

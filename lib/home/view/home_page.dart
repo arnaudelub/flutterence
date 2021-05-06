@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutterence/group/bloc/group_bloc.dart';
 import 'package:flutterence/home/widgets/group_creation_container.dart';
 import 'package:flutterence/home/widgets/horizontal_group_list.dart';
 import 'package:flutterence/injections.dart';
@@ -37,7 +36,7 @@ class HomeView extends StatelessWidget {
               onTap: () => print("Go to user profile page"),
               child: CircleAvatar(
                 backgroundImage:
-                    NetworkImage(getIt<IUserRepository>().user.avatar!),
+                    NetworkImage(getIt<IUserRepository>().user!.avatar!),
               ),
             ),
             IconButton(

@@ -504,6 +504,13 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
+  helper_repository:
+    dependency: "direct main"
+    description:
+      path: "packages/helper_repository"
+      relative: true
+    source: path
+    version: "0.0.1"
   http:
     dependency: transitive
     description:

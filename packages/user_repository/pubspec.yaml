@@ -27,6 +27,8 @@ dependencies:
       path: ../firestore_helper
   push_notification:
       path: ../push_notification
+  helper_repository:
+      path: ../helper_repository
   flutter_firebase_auth_facade: ^0.0.10-nullsafety.1
 
 dev_dependencies:

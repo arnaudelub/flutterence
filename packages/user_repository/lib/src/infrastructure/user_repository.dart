@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_firebase_auth_facade/flutter_firebase_auth_facade.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -10,25 +9,32 @@ import 'package:user_repository/src/domain/i_user_repository.dart';
 import 'package:user_repository/src/domain/user.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:firestore_helper/firestore_helper.dart';
+import 'package:helper_repository/helper_repository.dart';
 
 import 'user_dto.dart';
 
 class UserRepository implements IUserRepository {
-  UserRepository(this._firestore, this._auth, this._pushNotificationsManager);
+  UserRepository(this._firestore, this._auth, this._pushNotificationsManager,
+      this._appService);
 
   final FirebaseFirestore _firestore;
   final IAuthFacade _auth;
   final PushNotification _pushNotificationsManager;
+  final IAppService _appService;
 
   User? currentUser;
 
+  @override
   final StreamController<User> userStream = BehaviorSubject<User>();
 
+  @override
   String? notificationToken;
+
+  @override
   bool tokenUpdated = false;
 
   @override
-  User get user => currentUser!;
+  User? get user => currentUser;
 
   @override
   Stream<User> getUser() {
@@ -51,7 +57,7 @@ class UserRepository implements IUserRepository {
   Future<Either<FirestoreFailure, Unit>> addUser({required User user}) async {
     final _batch = _firestore.batch();
     notificationToken = 'foo';
-    if (!kIsWeb) {
+    if (!_appService.getkIsWeb()) {
       notificationToken = await _pushNotificationsManager.token;
     }
     try {
@@ -74,9 +80,9 @@ class UserRepository implements IUserRepository {
 
   @override
   Future<void> checkNotificationToken() async {
-    if (!kIsWeb && !tokenUpdated) {
+    if (!_appService.getkIsWeb() && !tokenUpdated) {
       final notificationToken = await _pushNotificationsManager.token;
-      if (notificationToken != user.notificationToken) {
+      if (notificationToken != user!.notificationToken) {
         await _updateUserNotificationToken(notificationToken!);
         tokenUpdated = true;
       }
@@ -178,7 +184,7 @@ class UserRepository implements IUserRepository {
 
   Future<void> _updateUserNotificationToken(String token) async {
     final _batch = _firestore.batch()
-      ..update(_firestore.collection(userCollectionName).doc(user.id),
+      ..update(_firestore.collection(userCollectionName).doc(user!.id),
           {'notification_token': token});
     await _batch.commit();
   }
