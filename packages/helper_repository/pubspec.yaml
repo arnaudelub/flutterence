@@ -1,8 +1,8 @@
 name: helper_repository
-description: A new Flutter package project.
+description: Some helpers for the projects and testing.
 version: 0.0.1
-publish_to: none
 homepage: https://github.com/arnaudelub/flutterence
+publish_to: none
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
