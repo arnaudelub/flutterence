@@ -18,14 +18,12 @@ jobs:
 
 
       - name: Create env file
-        shell: bash
         with:
             SECRET_FILE: ${{ secrets.ENVS }}
         run: echo "$SECRET_FILE" | base64 --decode > .env
 
 
       - name: Check if generated file is not empty
-        shell: bash
         run: ls -l .env
 
       - name: Run build_runner
