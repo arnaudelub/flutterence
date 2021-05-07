@@ -28,55 +28,55 @@ jobs:
 
 
       - name: Install dependencies
-        working-directory: packages/firestore_helper
+        working-directory: ./packages/firestore_helper
         run: flutter packages get
       - name: format
-        working-directory: packages/firestore_helper
+        working-directory: ./packages/firestore_helper
         run: flutter format --set-exit-if-changed lib test
       - name: Run build_runner
-        working-directory: packages/firestore_helper
+        working-directory: ./packages/firestore_helper
         run: |
           flutter pub run build_runner build --delete-conflicting-outputs
       - name: Analyze
-        working-directory: packages/firestore_helper
+        working-directory: ./packages/firestore_helper
         run: flutter analyze lib packages test
       - name: Run tests
-        working-directory: packages/firestore_helper
+        working-directory: ./packages/firestore_helper
         run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
 
       - name: Install dependencies
-        working-directory: packages/group_repository
+        working-directory: ./packages/group_repository
         run: flutter packages get
       - name: format
-        working-directory: packages/group_repository
+        working-directory: ./packages/group_repository
         run: flutter format --set-exit-if-changed lib test
       - name: Run build_runner
-        working-directory: packages/group_repository
+        working-directory: ./packages/group_repository
         run: |
             flutter pub run build_runner build --delete-conflicting-outputs
       - name: Analyze
-        working-directory: packages/group_repository
+        working-directory: ./packages/group_repository
         run: flutter analyze lib packages test
       - name: Run tests
-        working-directory: packages/group_repository
+        working-directory: ./packages/group_repository
         run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
 
 
       - name: Install dependencies
-        working-directory: packages/user_repository
+        working-directory: ./packages/user_repository
         run: flutter packages get
       - name: format
-        working-directory: packages/user_repository
+        working-directory: ./packages/user_repository
         run: flutter format --set-exit-if-changed lib test
       - name: Run build_runner
-        working-directory: packages/user_repository
+        working-directory: ./packages/user_repository
         run: |
             flutter pub run build_runner build --delete-conflicting-outputs
       - name: Analyze
-        working-directory: packages/user_repository
+        working-directory: ./packages/user_repository
         run: flutter analyze lib packages test
       - name: Run tests
-        working-directory: packages/user_repository
+        working-directory: ./packages/user_repository
         run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
 
 
