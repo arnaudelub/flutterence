@@ -8,7 +8,7 @@ import 'package:flutter_firebase_auth_facade/flutter_firebase_auth_facade.dart';
 import 'package:push_notification/push_notification.dart';
 import 'package:user_repository/user_repository.dart';
 import 'package:group_repository/group_repository.dart';
-import 'package:package:helper_repository/helper_repository.dart';
+import 'package:helper_repository/helper_repository.dart';
 
 @module
 abstract class PackagesInjectableModule {
