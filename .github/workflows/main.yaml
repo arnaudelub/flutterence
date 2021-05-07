@@ -39,7 +39,7 @@ jobs:
           flutter pub run build_runner build --delete-conflicting-outputs
       - name: Analyze
         working-directory: ./packages/firestore_helper
-        run: flutter analyze lib packages test
+        run: flutter analyze lib test
       - name: Run tests
         working-directory: ./packages/firestore_helper
         run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
@@ -56,7 +56,7 @@ jobs:
             flutter pub run build_runner build --delete-conflicting-outputs
       - name: Analyze
         working-directory: ./packages/group_repository
-        run: flutter analyze lib packages test
+        run: flutter analyze lib test
       - name: Run tests
         working-directory: ./packages/group_repository
         run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
@@ -74,7 +74,7 @@ jobs:
             flutter pub run build_runner build --delete-conflicting-outputs
       - name: Analyze
         working-directory: ./packages/user_repository
-        run: flutter analyze lib packages test
+        run: flutter analyze lib test
       - name: Run tests
         working-directory: ./packages/user_repository
         run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
