@@ -40,9 +40,6 @@ jobs:
       - name: Analyze
         working-directory: ./packages/firestore_helper
         run: flutter analyze lib test
-      - name: Run tests
-        working-directory: ./packages/firestore_helper
-        run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
 
       - name: Install dependencies
         working-directory: ./packages/group_repository
@@ -57,9 +54,6 @@ jobs:
       - name: Analyze
         working-directory: ./packages/group_repository
         run: flutter analyze lib test
-      - name: Run tests
-        working-directory: ./packages/group_repository
-        run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
 
 
       - name: Install dependencies
