@@ -26,19 +26,41 @@ jobs:
       - name: Check if generated file is not empty
         run: ls -l .env
 
-      - name: Run build_runner in package firestore_helper
+      - name: cd to package firestore_helper
         run: |
           cd packages/firestore_helper
           pwd
+      - name: Install dependencies
+        run: flutter packages get
+      - name: format
+        run: flutter format --set-exit-if-changed lib test
+      - name: Run build_runner
+        run: |
           flutter pub run build_runner build --delete-conflicting-outputs
-          cd -
-          pwd
+      - name: Analyze
+        run: flutter analyze lib packages test
+      - name: Run tests
+        run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
+      - name: cd to Root project
+            cd -
+            pwd
 
       - name: Run build_runner in package group_repository
         run: |
             cd packages/group_repository
             pwd
+      - name: Install dependencies
+        run: flutter packages get
+      - name: format
+        run: flutter format --set-exit-if-changed lib test
+      - name: Run build_runner
+        run: |
             flutter pub run build_runner build --delete-conflicting-outputs
+      - name: Analyze
+        run: flutter analyze lib packages test
+      - name: Run tests
+        run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
+      - name: cd to Root project
             cd -
             pwd
 
@@ -46,11 +68,20 @@ jobs:
         run: |
             cd packages/user_repository
             pwd
+      - name: Install dependencies
+        run: flutter packages get
+      - name: format
+        run: flutter format --set-exit-if-changed lib test
+      - name: Run build_runner
+        run: |
             flutter pub run build_runner build --delete-conflicting-outputs
+      - name: Analyze
+        run: flutter analyze lib packages test
+      - name: Run tests
+        run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
+      - name: cd to Root project
             cd -
             pwd
-      - name: Checking acual path
-        run: pwd
 
       - name: Run build_runner in project
         run: flutter pub run build_runner build --delete-conflicting-outputs
