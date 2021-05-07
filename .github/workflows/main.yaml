@@ -26,65 +26,59 @@ jobs:
       - name: Check if generated file is not empty
         run: ls -l .env
 
-      - name: cd to package firestore_helper
-        run: |
-          cd packages/firestore_helper
-          pwd
+
       - name: Install dependencies
+        working-directory: packages/firestore_helper
         run: flutter packages get
       - name: format
+        working-directory: packages/firestore_helper
         run: flutter format --set-exit-if-changed lib test
       - name: Run build_runner
+        working-directory: packages/firestore_helper
         run: |
           flutter pub run build_runner build --delete-conflicting-outputs
       - name: Analyze
+        working-directory: packages/firestore_helper
         run: flutter analyze lib packages test
       - name: Run tests
+        working-directory: packages/firestore_helper
         run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
-      - name: cd to Root project
-        run: |
-            cd -
-            pwd
 
-      - name: Run build_runner in package group_repository
-        run: |
-            cd packages/group_repository
-            pwd
       - name: Install dependencies
+        working-directory: packages/group_repository
         run: flutter packages get
       - name: format
+        working-directory: packages/group_repository
         run: flutter format --set-exit-if-changed lib test
       - name: Run build_runner
+        working-directory: packages/group_repository
         run: |
             flutter pub run build_runner build --delete-conflicting-outputs
       - name: Analyze
+        working-directory: packages/group_repository
         run: flutter analyze lib packages test
       - name: Run tests
+        working-directory: packages/group_repository
         run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
-      - name: cd to Root project
-        run: |
-            cd -
-            pwd
 
-      - name: Run build_runner in package user_repository
-        run: |
-            cd packages/user_repository
-            pwd
+
       - name: Install dependencies
+        working-directory: packages/user_repository
         run: flutter packages get
       - name: format
+        working-directory: packages/user_repository
         run: flutter format --set-exit-if-changed lib test
       - name: Run build_runner
+        working-directory: packages/user_repository
         run: |
             flutter pub run build_runner build --delete-conflicting-outputs
       - name: Analyze
+        working-directory: packages/user_repository
         run: flutter analyze lib packages test
       - name: Run tests
+        working-directory: packages/user_repository
         run: flutter test --no-pub --coverage --test-randomize-ordering-seed random
-      - name: cd to Root project
-        run: |
-            cd -
-            pwd
+
 
       - name: Run build_runner in project
         run: flutter pub run build_runner build --delete-conflicting-outputs
